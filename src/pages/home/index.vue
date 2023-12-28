@@ -1,6 +1,19 @@
 <template>
-  <div class="page">
+  <div class="main-page">
     <t-cell-group bordered>
+      <t-cell title="单行标题" arrow hover />
+      <t-cell title="单行标题" arrow hover required />
+      <t-cell title="单行标题" arrow hover />
+      <t-cell title="单行标题" arrow hover required />
+      <t-cell title="单行标题" arrow hover />
+      <t-cell title="单行标题" arrow hover required />
+
+      <t-cell title="单行标题" arrow hover />
+      <t-cell title="单行标题" arrow hover required />
+      <t-cell title="单行标题" arrow hover />
+      <t-cell title="单行标题" arrow hover required />
+      <t-cell title="单行标题" arrow hover />
+      <t-cell title="单行标题" arrow hover required />
       <t-cell title="单行标题" arrow hover />
       <t-cell title="单行标题" arrow hover required />
       <t-cell title="单行标题" arrow hover>
