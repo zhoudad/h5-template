@@ -1,12 +1,11 @@
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
-
-import App from './App.vue'
-
-import './app.css'
+import '@/styles/theme.css'
 import 'tdesign-mobile-vue/dist/reset.css';
 import 'tdesign-mobile-vue/es/style/index.css';
-import '@/styles/theme.css'
+
+import App from './app.vue'
+import './app.css'
 
 import router from './router';
 

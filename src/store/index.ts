@@ -1,7 +1,20 @@
 import { defineStore } from 'pinia'
 
-// useStore 可以是 useUser、useCart 之类的任何东西
-// 第一个参数是应用程序中 store 的唯一 id
+export type TabNameType = 'home' | 'me' | 'courier'
+
+/**
+ *  light: 浅色模式，dark: 暗色模式
+ */
+type ModeType = "light" | "dark"
+
 export const useStore = defineStore('main', {
-  // other options...
+  state(): {
+    mode: ModeType,
+    tabActive: TabNameType
+  } {
+    return {
+      mode: 'light',
+      tabActive: 'home',
+    }
+  }
 })

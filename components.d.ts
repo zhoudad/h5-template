@@ -15,5 +15,7 @@ declare module 'vue' {
     TCell: typeof import('tdesign-mobile-vue')['Cell']
     TCellGroup: typeof import('tdesign-mobile-vue')['CellGroup']
     TSwitch: typeof import('tdesign-mobile-vue')['Switch']
+    TTabBar: typeof import('tdesign-mobile-vue')['TabBar']
+    TTabBarItem: typeof import('tdesign-mobile-vue')['TabBarItem']
   }
 }

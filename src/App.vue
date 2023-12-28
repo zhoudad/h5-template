@@ -1,27 +1,25 @@
 <template>
-  <div class="app">
-    <t-cell-group bordered>
-    <t-cell title="单行标题" arrow hover />
-    <t-cell title="单行标题" arrow hover required />
-    <t-cell title="单行标题" arrow hover>
-      <template #note>
-        <t-badge :count="16" />
-      </template>
-    </t-cell>
-    <t-cell title="单行标题" hover>
-      <template #note>
-        <t-switch :default-value="true" />
-      </template>
-    </t-cell>
-    <t-cell title="单行标题" note="辅助信息" arrow hover />
-  </t-cell-group>
-  <t-button block theme="primary">填充按钮</t-button>
-  </div>
+  <router-view v-slot="{ Component }">
+    <transition name="nested">
+      <component :is="Component" />
+    </transition>
+  </router-view>
 </template>
 
-<script setup lang="ts">
+<script setup lang="ts"></script>
 
-</script>
+<style lang="less">
+.nested-enter-active .inner,
+.nested-leave-active .inner {
+  transition: all 0.3s ease-in-out;
+}
 
-<style scoped lang="less">
+.nested-enter-from .inner,
+.nested-leave-to .inner {
+  transform: translateX(30px);
+  opacity: 0;
+}
+.nested-enter-active .inner {
+  transition-delay: 0.25s;
+}
 </style>

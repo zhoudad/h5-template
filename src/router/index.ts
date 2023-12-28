@@ -5,13 +5,27 @@ import 'nprogress/nprogress.css'
 
 NProgress.configure({ showSpinner: true, parent: '#app' })
 
-import App from '@/App.vue'
+import home from '@/pages/home/index.vue'
+import me from '@/pages/me/index.vue'
+import send from '@/pages/send/index.vue'
 
 const routes: RouteRecordRaw[] = [
     {
         path: '/',
-        name: 'app',
-        component: App,
+        name: 'root',
+        redirect: { name: 'home' }
+    }, {
+        path: '/home',
+        name: 'home',
+        component: home,
+    }, {
+        path: '/send',
+        name: 'send',
+        component: send,
+    }, {
+        path: '/me',
+        name: 'me',
+        component: me,
     },
 ]
 

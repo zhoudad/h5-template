@@ -2,3 +2,8 @@
   min-height: 100vh;
   min-width: 100vw;
 }
+
+.page{
+  background-color: var(--td-bg-color-page);
+  min-height: 100vh;
+}
