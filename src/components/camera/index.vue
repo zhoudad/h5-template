@@ -1,64 +1,66 @@
 <script setup lang="ts">
-import { BrowserMultiFormatReader } from '@zxing/library'
-import { Icon } from 'tdesign-icons-vue-next'
+import { BrowserMultiFormatReader } from '@zxing/library';
+import { Icon } from 'tdesign-icons-vue-next';
 
-const emits = defineEmits(['change', 'close'])
+const emits = defineEmits(['change', 'close']);
 
 function initReader() {
-  const codeReader = new BrowserMultiFormatReader()
+  const codeReader = new BrowserMultiFormatReader();
 
-  return codeReader.listVideoInputDevices()
+  return codeReader
+    .listVideoInputDevices()
     .then((videoInputDevices) => {
-      if (videoInputDevices.length <= 0)
-        throw new Error('妹找到摄像头啊')
+      if (videoInputDevices.length <= 0) throw new Error('妹找到摄像头啊');
 
       return {
         videoDeviceID: videoInputDevices[0].deviceId,
         codeReader,
-      }
+      };
     })
     .catch((err) => {
-      console.log(err)
-    })
+      console.log(err);
+    });
 }
 
 function decode(codeReader, selectedDeviceId) {
-  codeReader.decodeFromInputVideoDevice(selectedDeviceId, 'video')
+  codeReader
+    .decodeFromInputVideoDevice(selectedDeviceId, 'video')
     .then((result) => {
       // console.log(result)
-      emits('change', result.text)
-      close()
-    }).catch((_err) => {
-      // setMessage(err.toString())
+      emits('change', result.text);
+      close();
     })
+    .catch((_err) => {
+      // setMessage(err.toString())
+    });
 }
 
 function readerClose() {
-  emits('close')
+  emits('close');
 }
 
-const reader = ref()
-const deviceID = ref()
+const reader = ref();
+const deviceID = ref();
 onMounted(async () => {
   if (!reader.value) {
-    const { videoDeviceID, codeReader }: any = await initReader()
-    reader.value = codeReader
-    deviceID.value = videoDeviceID
+    const { videoDeviceID, codeReader }: any = await initReader();
+    reader.value = codeReader;
+    deviceID.value = videoDeviceID;
   }
-})
+});
 
 function start() {
-  decode(reader.value, deviceID.value)
+  decode(reader.value, deviceID.value);
 }
 
 function close() {
-  reader.value.reset()
+  reader.value.reset();
 }
 
 defineExpose({
   start,
   close,
-})
+});
 </script>
 
 <template>
@@ -109,7 +111,7 @@ defineExpose({
   background-color: rgba(0, 0, 0, 0.5);
 }
 
-.close-wrap{
+.close-wrap {
   position: absolute;
   width: 32px;
   height: 32px;
@@ -186,7 +188,7 @@ defineExpose({
 .Qr_scanner .box:before,
 .Qr_scanner .angle:after,
 .Qr_scanner .angle:before {
-  content: "";
+  content: '';
   display: block;
   position: absolute;
   width: 78px;
