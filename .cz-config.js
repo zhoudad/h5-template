@@ -1,4 +1,4 @@
-export default {
+module.exports = {
   // 可选类型
   types: [
     { value: 'feat', name: 'feat:     新功能' },
@@ -10,6 +10,7 @@ export default {
       name: 'refactor: 重构(既不是增加feature，也不是修复bug)',
     },
     { value: 'perf', name: 'perf:     性能优化' },
+    { value: 'ci', name: 'ci:       更改持续集成软件的配置文件和package中的scripts命令' },
     { value: 'test', name: 'test:     增加测试' },
     { value: 'chore', name: 'chore:    构建过程或辅助工具的变动' },
     { value: 'revert', name: 'revert:   回退' },
